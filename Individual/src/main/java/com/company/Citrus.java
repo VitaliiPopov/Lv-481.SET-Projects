@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Citrus extends Fruit {
@@ -32,11 +33,25 @@ public class Citrus extends Fruit {
     }
     @Override
     public String toString(){
-        return String.format("Fruit - " + getName() + " has " + getColor() + " color and contain " + getVitaminC() + " grams of VitaminC.");
+        return ("Fruit - " + getName() + " has " + getColor() + " color and contain " + getVitaminC() + " grams of VitaminC.");
     }
     @Override
     public void Output()
     {
         System.out.println(this.toString());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Citrus citrus = (Citrus) o;
+        return Double.compare(citrus.vitaminC, vitaminC) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), vitaminC);
     }
 }
