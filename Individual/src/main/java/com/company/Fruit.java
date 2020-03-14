@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Fruit implements Comparable<Fruit>
@@ -40,13 +41,27 @@ public class Fruit implements Comparable<Fruit>
     @Override
     public String toString()
     {
-        return String.format("Fruit - " + name + " has " + color + " color.");
+        return "Fruit - " + name + " has " + color + " color.";
     }
 
     @Override
     public int compareTo(Fruit otherFruit)
     {
         return name.compareTo(otherFruit.name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fruit fruit = (Fruit) o;
+        return name.equals(fruit.name) &&
+                color.equals(fruit.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, color);
     }
 
     public void Output()

@@ -1,8 +1,11 @@
-package com.company;
+package com.company.Tools;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import com.company.Fruit;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class WriteToFile {
@@ -19,7 +22,7 @@ public class WriteToFile {
                 myWrite.write("\n");
             }
             myWrite.close();
-            System.out.println("*****Successfully wrote to the file.*******");
+            System.out.println("\n*****Successfully wrote to the file.*******\n");
         }
         catch (IOException e){
             e.printStackTrace();
